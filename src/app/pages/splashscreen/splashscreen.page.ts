@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StatusBar } from '@capacitor/status-bar';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-splashscreen',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashscreenPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCont:NavController) { }
 
   ngOnInit() {
+    StatusBar.hide();
+  }
+
+  ionViewDidEnter() {
+    SplashScreen.hide();
+    setTimeout(() => {
+      this.navCont.navigateRoot(['/login']);
+    }, 5000);
   }
 
 }

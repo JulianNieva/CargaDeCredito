@@ -1,0 +1,131 @@
+ion-content {
+  --background: rgb(235, 231, 231);
+  --background: radial-gradient(
+    circle,
+    rgba(235, 231, 231, 1) 7%,
+    rgba(30, 69, 237, 1) 100%
+  );
+  font-family: fantasy;
+}
+
+.scanner-activo {
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+.wrapper {
+  background: rgb(73, 1, 1);
+  border-radius: 15px;
+  border: 3px solid #fff;
+}
+
+.visor {
+  margin-top: 5rem;
+  display: grid;
+  place-content: center;
+}
+
+.centrado {
+  display: grid;
+  place-content: center;
+}
+
+.escanear {
+  display: grid;
+  place-content: center;
+  width: 15rem;
+  height: 4rem;
+  border-radius: 30px;
+  box-shadow: 3px 3px 4px #000;
+  color: black;
+  font-size: 1.7rem;
+  font-family: fantasy;
+  background: #c9330e;
+}
+.escanear:active {
+  transform: scale(1.1);
+  background: #000;
+  box-shadow: 0 0 12px rgb(255, 255, 255);
+  transition: transform 0.5s, background 0.5s;
+}
+
+.titulo {
+  display: grid;
+  place-content: center;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-family: fantasy;
+  margin-top: 0px;
+  color: #fff;
+  text-shadow: 3px 3px 3px #000;
+}
+
+.monto {
+  border: 5px dotted #000;
+  background: rgb(91, 88, 88);
+  background: linear-gradient(
+    0deg,
+    rgba(91, 88, 88, 1) 0%,
+    rgba(94, 245, 4, 1) 100%
+  );
+  width: 21rem;
+  height: 23rem;
+  font-size: 9rem;
+  display: grid;
+  place-content: center;
+  font-family: fantasy;
+  color: #fff;
+  text-shadow: 3px 3px 3px #000;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  box-shadow: 8px 8px 4px #000;
+}
+.monto-amarillo{
+  background: rgb(91, 88, 88);
+  background: linear-gradient(
+    0deg,
+    rgba(91, 88, 88, 1) 0%,
+    rgb(255, 123, 0) 100%
+  );
+}
+.monto-rojo{
+  background: rgb(91, 88, 88);
+  background: linear-gradient(
+    0deg,
+    rgba(91, 88, 88, 1) 0%,
+    rgb(245, 4, 4) 100%
+  )!important;
+}
+
+.scanner-activo-visor {
+  border: 5px dotted #fff;
+  color: transparent;
+  text-shadow: 3px 3px 3px transparent;
+  background: transparent;
+  background-color: transparent;
+  position: relative;
+  span {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 3px;
+    background: red;
+    animation-name: move-bar;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    box-shadow: 0 0 20px red;
+  }
+}
+
+@keyframes move-bar {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
