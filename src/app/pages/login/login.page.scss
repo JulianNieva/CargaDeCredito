@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+$font: 'Questrial', sans-serif;
+
 ion-content{
     --background: #bdb068;
+}
+
+@-webkit-keyframes jello-vertical{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}40%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}50%{-webkit-transform:scale3d(.85,1.15,1);transform:scale3d(.85,1.15,1)}65%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}75%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}@keyframes jello-vertical{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}40%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}50%{-webkit-transform:scale3d(.85,1.15,1);transform:scale3d(.85,1.15,1)}65%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}75%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}
+.jello-vertical {
+	-webkit-animation: jello-vertical 2s 1s infinite both;
+	        animation: jello-vertical 2s 1s infinite both;
 }
 
 .icon{
@@ -10,11 +19,13 @@ ion-content{
 }
 
 .parrafo{
+    font-family: $font;
     font-size:large;
     color: #FFE6A7;
 }
 
 .texto{
+    font-family: $font;
     font-size: small;
 }
 
@@ -24,6 +35,7 @@ ion-card{
 }
 
 ion-item{
+    font-family: $font;
     border-radius: 10px;
     --background: #55aeda;
 }
@@ -43,7 +55,7 @@ ion-range{
 }
 
 ion-spinner{
-    color:#091540;
+    --color:white;
 }
 
 ion-button{
@@ -55,4 +67,8 @@ ion-button{
     width:auto;
     max-width: 85px;
     --background:#432818;
+}
+
+ion-text{
+    font-family: $font;
 }

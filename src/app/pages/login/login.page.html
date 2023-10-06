@@ -1,10 +1,10 @@
 <ion-content no-scroll>
   <div class="ion-text-center">
-    <img class="icon" src="assets/icon.png">
+    <img class="icon jello-vertical" src="assets/icon.png">
   </div>
   <ion-card>
     <ion-card-header class="ion-text-center">
-      <p class="parrafo">¡Puede seleccionar un usuario!</p>     
+      <p class="parrafo">¡Puede seleccionar un usuario!</p>
         <ion-range [ticks]="true" step="1" [snaps]="true" [min]="-1" [max]="2" [(ngModel)]="usuario" (ionChange)="CargarForm()"></ion-range>
         <ng-container *ngIf="usuario != -1; else noValueSelected">
           <ion-item lines="none">
@@ -30,7 +30,7 @@
     <ion-card-content>
       <form>
         <ion-item lines="none">
-          <ion-input type="email" label="Correo Electrónico" labelPlacement="floating" [formControl]="email"></ion-input>
+          <ion-input type="email" style="font-family: 'Questrial', sans-serif;" label="Correo Electrónico" labelPlacement="floating" [formControl]="email"></ion-input>
         </ion-item>
         <div color="danger" *ngIf="email.errors && (email.dirty || email.touched)">
           <ion-text color="danger" *ngIf="email.errors['required']">¡El campo no puede estar vacio!</ion-text>
@@ -38,7 +38,7 @@
         </div>
         <br>
         <ion-item lines="none">
-          <ion-input type="password" label="Contraseña" labelPlacement="floating" [formControl]="clave"></ion-input>
+          <ion-input type="password" label="Contraseña" style="font-family: 'Questrial', sans-serif;" labelPlacement="floating" [formControl]="clave"></ion-input>
         </ion-item>
         <div color="danger" *ngIf="clave.errors && (clave.dirty || clave.touched)">
           <ion-text color="danger" *ngIf="clave.errors['required']">¡El campo no puede estar vacio!</ion-text>
@@ -46,7 +46,8 @@
         </div>
         <br>
         <ion-button (click)="login()" size="default" [disabled]="!isFormValid || loginPressed">
-          <ion-icon slot="icon-only" name="log-in"></ion-icon>
+          <ion-icon *ngIf="!loginPressed" slot="icon-only" name="log-in"></ion-icon>
+          <ion-spinner *ngIf="loginPressed" name="bubbles"></ion-spinner>
         </ion-button>
       </form> 
     </ion-card-content>

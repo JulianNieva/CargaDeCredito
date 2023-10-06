@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+$font: 'Questrial', sans-serif;
+
 ion-content {
-  --background: rgb(235, 231, 231);
   --background: radial-gradient(
     circle,
-    rgba(235, 231, 231, 1) 7%,
-    rgba(30, 69, 237, 1) 100%
+    #BCE7FD 7%,
+    #bdb068 100%
   );
-  font-family: fantasy;
+  font-family: $font;
+}
+
+.header{
+  --background: transparent;
+}
+
+.toolbar-icon {
+  font-size: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .scanner-activo {
@@ -13,19 +24,14 @@ ion-content {
   --ion-background-color: transparent;
 }
 
-.wrapper {
-  background: rgb(73, 1, 1);
-  border-radius: 15px;
-  border: 3px solid #fff;
-}
-
 .visor {
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: grid;
   place-content: center;
 }
 
 .centrado {
+  padding-top: 0.5rem;
   display: grid;
   place-content: center;
 }
@@ -33,14 +39,15 @@ ion-content {
 .escanear {
   display: grid;
   place-content: center;
-  width: 15rem;
-  height: 4rem;
-  border-radius: 30px;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 10px;
   box-shadow: 3px 3px 4px #000;
-  color: black;
-  font-size: 1.7rem;
-  font-family: fantasy;
-  background: #c9330e;
+  background: #4390cf;
+  img{
+    width: 4rem;
+    height: 4rem;
+  }
 }
 .escanear:active {
   transform: scale(1.1);
@@ -54,15 +61,14 @@ ion-content {
   place-content: center;
   margin-bottom: 1rem;
   font-size: 2.5rem;
-  font-family: fantasy;
+  font-family: $font;
   margin-top: 0px;
   color: #fff;
   text-shadow: 3px 3px 3px #000;
 }
 
 .monto {
-  border: 5px dotted #000;
-  background: rgb(91, 88, 88);
+  border: 5px ridge #000;
   background: linear-gradient(
     0deg,
     rgba(91, 88, 88, 1) 0%,
@@ -73,7 +79,7 @@ ion-content {
   font-size: 9rem;
   display: grid;
   place-content: center;
-  font-family: fantasy;
+  font-family: $font;
   color: #fff;
   text-shadow: 3px 3px 3px #000;
   border-radius: 30px;
@@ -87,20 +93,19 @@ ion-content {
   background: linear-gradient(
     0deg,
     rgba(91, 88, 88, 1) 0%,
-    rgb(255, 123, 0) 100%
+    #F9E784 100%
   );
 }
 .monto-rojo{
-  background: rgb(91, 88, 88);
   background: linear-gradient(
     0deg,
     rgba(91, 88, 88, 1) 0%,
-    rgb(245, 4, 4) 100%
+    rgb(172, 21, 21) 100%
   )!important;
 }
 
 .scanner-activo-visor {
-  border: 5px dotted #fff;
+  border: 5px ridge #fff;
   color: transparent;
   text-shadow: 3px 3px 3px transparent;
   background: transparent;
@@ -128,4 +133,64 @@ ion-content {
   100% {
     top: 100%;
   }
+}
+
+//SPINNER
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.custom-spinner img {
+  animation: rotate-center 1s ease-in-out infinite both;
+  max-width: 200px;
+  height: 200px;
+  opacity: 1;
+}
+
+.custom-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+  background-color: rgba(121, 119, 119, 0.932);
+  background-repeat: no-repeat;
+  background-size: 150px;
+  background-position: center;
+}
+
+.spinnerh1 {
+  font-family: $font;
+  position: absolute;
+  top: 200px;
+  font-size: 40px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper {
+  position: absolute;
+  background: #2A628F;
+  border-radius: 10px;
+  border: 3px solid #fff;
+  transform: translate(0, -50%);
+  top: 50%;
+  width: 100vw;
+  left: 0;
+}
+
+ion-modal{
+  --background:transparent;
 }

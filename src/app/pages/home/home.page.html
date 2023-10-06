@@ -1,73 +1,59 @@
-<ion-content style="font-family: fantasy" [ngClass]="scanActive?'scanner-activo':''" noscroll>
+<ion-content style="font-family: 'Questrial', sans-serif;" [ngClass]="scanActive?'scanner-activo':''" noscroll>
     <!-- ******************************* LOGOUT Y REINICIO DE SALDO *******************************-->
-    <ion-fab vertical="top" horizontal="start" slot="fixed" *ngIf="!scanActive">
-        <ion-fab-button color="dark">
-            <ion-icon name="menu-sharp"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="end">
-            <ion-fab-button (click)="logoutUser()" style="border: 1px solid #000; border-radius: 50%"><ion-icon
-                    name="exit-sharp" style="
-            color: #f00;
-            background: rgb(255, 255, 255);
-            padding: 5px;
-            font-size: 3rem;
-          "></ion-icon></ion-fab-button>
-            <ion-fab-button style="border: 1px solid #000; border-radius: 50%" id="open-custom-dialog"
-                expand="block"><ion-icon name="trash-sharp" style="
-            color: #f00;
-            background: rgb(255, 255, 255);
-            padding: 5px;
-            font-size: 3rem;
-          "></ion-icon></ion-fab-button>
-        </ion-fab-list>
-    </ion-fab>
-
-    <!-- *************************** MODAL *************************** -->
-    <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
-        <ng-template>
-            <div class="wrapper" style="padding: 10px; padding-bottom: 30px">
-                <h1 style="
-            color: #fff;
-            text-align: center;
-            text-shadow: 1px 1px #000;
-            margin-bottom: 1rem;
-            font-weight: bold;
-          ">
-                    ¿Desea eliminar el saldo?
-                </h1>
-                <p style="
-            color: #fff;
-            text-align: center;
-            text-shadow: 1px 1px #000;
-            margin-bottom: 1rem;
-            font-weight: bold;
-          ">
-                    Advertencia: ¡No es posible recuperar el saldo una vez que se elimina!
-                </p>
-                <div style="display: flex; justify-content: center">
-                    <button class="btn btn-danger" style="
-              margin-right: 1rem;
-              width: 8rem;
-              font-size: 1.3rem;
-              text-shadow: 1px 1px 1px #000;
-              box-shadow: 2px 2px 4px #000;
-            " (click)="modal.dismiss()">
-                        Cancelar
-                    </button>
-                    <button class="btn btn-success" style="
-              margin-left: 1rem;
-              width: 8rem;
-              font-size: 1.3rem;
-              text-shadow: 1px 1px 1px #000;
-              box-shadow: 2px 2px 4px #000;
-            " (click)="modal.dismiss()" (click)="restartCredit()">
-                        Confirmar
-                    </button>
+    <ion-toolbar class="header">
+        <ion-buttons slot="start">
+            <ion-icon id="cerrarSesion" style="color:#99582A" (click)="logoutUser()"  name="log-out"
+              class="toolbar-icon"></ion-icon>
+          </ion-buttons>
+        <ion-buttons id="open-custom-dialog" slot="end">
+            <ion-icon id="limpiar" name="trash-outline" style="color:#4d2107" class="toolbar-icon"></ion-icon>
+        </ion-buttons>
+        <!-- *************************** MODAL *************************** -->
+        <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+            <ng-template>
+                <div class="wrapper" style="padding: 10px; padding-bottom: 30px">
+                    <h1 style="
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px #000;
+                margin-bottom: 1rem;
+                font-weight: bold;
+              ">
+                        ¿Desea eliminar el saldo?
+                    </h1>
+                    <p style="
+                color: #fff;
+                text-align: center;
+                text-shadow: 1px 1px #000;
+                margin-bottom: 1rem;
+                font-weight: bold;
+              ">
+                        Advertencia: ¡No es posible recuperar el saldo una vez que se elimina!
+                    </p>
+                    <div style="display: flex; justify-content: center">
+                        <button class="btn btn-danger" style="
+                  margin-right: 1rem;
+                  width: 8rem;
+                  font-size: 1.3rem;
+                  text-shadow: 1px 1px 1px #000;
+                  box-shadow: 2px 2px 4px #000;
+                " (click)="modal.dismiss()">
+                            Cancelar
+                        </button>
+                        <button class="btn btn-success" style="
+                  margin-left: 1rem;
+                  width: 8rem;
+                  font-size: 1.3rem;
+                  text-shadow: 1px 1px 1px #000;
+                  box-shadow: 2px 2px 4px #000;
+                " (click)="modal.dismiss()" (click)="restartCredit()">
+                            Confirmar
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </ng-template>
-    </ion-modal>
-
+            </ng-template>
+        </ion-modal>
+      </ion-toolbar>
     <!-- *************************** VISOR DE SALDO Y BOTON SCANNER *************************** -->
     <div class="visor">
         <h1 class="titulo" *ngIf="!scanActive">SALDO ACTUAL</h1>
@@ -78,33 +64,24 @@
         'monto-amarillo': (credit > 0 && credit <= 70) && !scanActive}">
             ${{this.credit}} <span></span>
         </p>
-        <!-- <p>{{this.currentScan}}</p> -->
     </div>
     <div class="centrado">
         <button class="escanear" expand="block" type="button" (click)="startScan()" *ngIf="!scanActive">
-            <ion-text style="
-          color: #fff;
-          text-shadow: 2px 2px 4px #000;
-          font-size: 1.7rem;
-          font-family: fantasy;
-        ">ESCANEAR <ion-icon name="qr-code-outline"></ion-icon></ion-text>
+            <img src="../../../assets/icons/qr-code.png" alt="">
         </button>
         <button class="escanear" expand="block" type="button" (click)="stopScan()" *ngIf="scanActive">
             <ion-text style="
           color: #fff;
           text-shadow: 2px 2px 4px #000;
-          font-size: 1.7rem;
-          font-family: fantasy;
-        ">DETENER <ion-icon name="scan-outline"></ion-icon></ion-text>
+          font-size: 1rem;
+          font-family: 'Questrial', sans-serif;;
+        ">CANCELAR <ion-icon name="scan-outline"></ion-icon></ion-text>
         </button>
     </div>
 
     <!-- ******************************* SPINNER *******************************-->
-    <ion-spinner *ngIf="pressedButton" color="danger" name="lines-sharp-small" style="
-      display: inherit;
-      margin: auto;
-      width: 4cm;
-      height: 4cm;
-      margin-top: 2rem;
-    "></ion-spinner>
+    <div *ngIf="pressedButton" class="custom-spinner">
+        <h1 class="spinnerh1">Cargando...</h1>
+        <img src="../../../assets/icon.png" alt="Custom Spinner" />
+      </div>
 </ion-content>
