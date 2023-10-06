@@ -1,11 +1,11 @@
 <ion-content style="font-family: 'Questrial', sans-serif;" [ngClass]="scanActive?'scanner-activo':''" noscroll>
     <!-- ******************************* LOGOUT Y REINICIO DE SALDO *******************************-->
     <ion-toolbar class="header">
-        <ion-buttons slot="start">
+        <ion-buttons slot="start" *ngIf="!scanActive">
             <ion-icon id="cerrarSesion" style="color:#99582A" (click)="logoutUser()"  name="log-out"
               class="toolbar-icon"></ion-icon>
           </ion-buttons>
-        <ion-buttons id="open-custom-dialog" slot="end">
+        <ion-buttons id="open-custom-dialog" slot="end" *ngIf="!scanActive">
             <ion-icon id="limpiar" name="trash-outline" style="color:#4d2107" class="toolbar-icon"></ion-icon>
         </ion-buttons>
         <!-- *************************** MODAL *************************** -->

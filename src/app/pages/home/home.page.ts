@@ -40,7 +40,7 @@ export class HomePage implements OnInit {
         this.pressedButton = false;
         this.user = user;
         this.credit = this.user.userCredit;
-        //this.qrScanner.scanPrepare();
+        this.qrScanner.scanPrepare();
         this.userAuth = this.angularFireAuth.authState.subscribe((user) => {
           this.userAuth = user;
         });

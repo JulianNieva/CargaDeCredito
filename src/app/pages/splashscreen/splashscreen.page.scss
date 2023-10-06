@@ -14,7 +14,7 @@ ion-content {
     p {
       color: #F9E784;
       font-size: 3rem;
-      font-weight: lighter;
+      font-weight: light;
       text-shadow: 3px 3px 6px rgb(0, 0, 0);
       font-family: $font;
     }
@@ -28,10 +28,7 @@ ion-content {
     :nth-child(1) {
       margin-bottom: 1rem;
     }
-  
-    :nth-child(2) {
-      margin-top: 3rem;
-    }
+
   
     img {
       width: 17rem;
@@ -41,14 +38,14 @@ ion-content {
   // animacion letras
   
   .puff-in-center {
-    -webkit-animation: puff-in-center 1s cubic-bezier(0.47, 0, 0.745, 0.715) both;
-    animation: puff-in-center 1s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+    -webkit-animation: puff-in-center 2s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+    animation: puff-in-center 2s cubic-bezier(0.47, 0, 0.745, 0.715) both;
   }
   
   .scale-in-center {
-    -webkit-animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    -webkit-animation: scale-in-center 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       both;
-    animation: scale-in-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-in-center 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
   
   /* ----------------------------------------------
